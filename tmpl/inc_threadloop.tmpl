@@ -1,0 +1,41 @@
+<div id="threadstream">
+<!-- tmpl_loop name="stream_loop" -->
+<!-- tmpl_if logged_in_user -->
+<!-- <!-- tmpl_var name="author_type" --> -->
+
+<p> 
+<div style="float:right;padding-left:.5em;">
+<a href="<!-- tmpl_var name="cgi_app" -->/replies/<!-- tmpl_var name="message_id" -->"><!-- tmpl_var name="reply_count" --></a>
+</div>
+ <!-- tmpl_var name="message_text" -->  
+<br />
+<div class="lastpostline">
+<!-- tmpl_if reply_count -->
+<small class="greytext"> 
+ last by <a href="<!-- tmpl_var name="cgi_app" -->/user/<!-- tmpl_var name="last_author_name" -->"><!-- tmpl_var name="last_message_author_name" --></a>
+  - <a href="<!-- tmpl_var name="cgi_app" -->/showmessage/<!-- tmpl_var name="last_message_id" -->"><!-- tmpl_var name="last_message_date" --></a>
+</small>
+<!-- tmpl_else -->
+<small class="greytext">
+ <em>new</em> by <a href="<!-- tmpl_var name="cgi_app" -->/user/<!-- tmpl_var name="author_name" -->"><!-- tmpl_var name="author_name" --></a>
+  - <a href="<!-- tmpl_var name="cgi_app" -->/showmessage/<!-- tmpl_var name="message_id" -->"><!-- tmpl_var name="created_date" --></a>
+</small>
+<!-- /tmpl_if -->
+</div>
+</p>
+
+<!-- <!-- tmpl_var name="parent_id" -->  -->
+<!-- <!-- tmpl_var name="recipient_names" -->  -->
+
+<hr class="hrthreads">
+
+<!-- /tmpl_if -->
+<!-- /tmpl_loop -->
+</div>  <!-- close streamcontent div -->
+<!-- tmpl_if not_last_page -->
+<span id="olderlink"><a href="<!-- tmpl_var name="next_page_url" -->">Older &gt;&gt;</a></span>
+<!-- /tmpl_if -->
+<!-- tmpl_if not_page_one -->
+<a href="<!-- tmpl_var name="previous_page_url" -->">&lt;&lt; Newer</a>
+<!-- /tmpl_if -->
+</div> 

@@ -1,0 +1,56 @@
+<!-- tmpl_include name="notloggedinheader.tmpl" -->
+
+<!-- <div style="text-align: center; background: #120a8f; color: #ffffff; padding-bottom: 10px; padding-top: 5px; width:100%;">  -->
+<div style="text-align: center; background: #0066ff; color: #ffffff; padding-bottom: 10px; padding-top: 5px; width:100%;"> 
+<p>
+<big>Log into <strong><!-- tmpl_var name="site_name" --></strong></big>
+</p>
+
+<div id="homepagebutton">
+
+<form action="<!-- tmpl_var name="cgi_app" -->/login" method="post"> 
+
+<p>
+<div style="text-align: center;">
+<label for="email">E-mail:</label>
+</div>
+<input type="text" id="email" name="email" maxlength="30" autofocus />
+</p>
+
+<p>
+<div style="text-align: center;">
+<label for="password">Password:</label>
+</div>
+<input type="password" id="password" name="password" maxlength="30" />
+</p>
+
+<p>
+<label for="savepassword">Save login:</label>
+<input type="checkbox" name="savepassword" value="yes" />
+</p> 
+
+<p>
+<label for="blank">&nbsp;</label>
+<input class="submitbutton" id="submit" type="submit" value="Login" />
+</p> 
+
+</form>
+
+</div>
+
+</div> <!-- end background color div -->
+
+<p> 
+<center>
+<form action="<!-- tmpl_var name="cgi_app" -->/signup/">
+Or  <input class="submitbutton" type="submit" value="sign-up"> to create an account.
+</form>
+</center>
+</p>
+
+<!-- dummy placement values 
+<!-- tmpl_var name="loggedin" -->
+<!-- tmpl_var name="user_name" -->
+-->
+
+<!-- tmpl_include name="notloggedinfooter.tmpl" -->

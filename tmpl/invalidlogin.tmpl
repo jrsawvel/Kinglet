@@ -1,0 +1,19 @@
+<!-- tmpl_include name="header.tmpl" -->
+
+<p>
+Log into <!-- tmpl_var name="site_name" --> 
+</p>
+
+<p>
+Your username or password was not found in the database. Try again below. If you've lost your password, try the lost password form below.
+</p>
+
+<!-- tmpl_include name="inc_loginform.tmpl" -->
+
+<p>
+<strong>Note:</strong> If you've not registered before, you'll need to <a href="<!-- tmpl_var name="cgi_app" -->/signup">sign-up</a> before you can login. 
+</p>
+
+<!-- tmpl_include name="inc_lostpasswordform.tmpl" -->
+
+<!-- tmpl_include name="footer.tmpl" -->

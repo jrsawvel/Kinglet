@@ -1,0 +1,59 @@
+<div id="streamcontent">
+<!-- tmpl_loop name="stream_loop" -->
+<!-- tmpl_if logged_in_user -->
+
+<!-- <!-- tmpl_var name="message_status" -->"> -->
+
+<div class="messageblock">
+<div class="bubble">
+<!-- <p> -->
+<!-- tmpl_unless parent_id -->
+<div class="triangle-isosceles <!-- tmpl_var name="author_type" --> newmessage"> 
+<!-- tmpl_else -->
+    <!-- <div class="<!-- tmpl_var name="author_type" -->">  -->
+<div class="triangle-isosceles <!-- tmpl_var name="author_type" -->">
+<!-- /tmpl_unless -->
+
+<!-- <small class="greytext"><a href="<!-- tmpl_var name="cgi_app" -->/user/<!-- tmpl_var name="author_name" -->"><!-- tmpl_var name="author_name" --></a></small>:  -->
+<span class="authorlink"><a href="<!-- tmpl_var name="cgi_app" -->/user/<!-- tmpl_var name="author_name" -->"><!-- tmpl_var name="author_name" --></a>:</span>
+<!-- tmpl_if parent_id -->
+ <em>(Re:)</em>
+<!-- /tmpl_if -->
+ <!-- tmpl_var name="message_text" -->  
+<br />
+<small class="greytext">- <a href="<!-- tmpl_var name="cgi_app" -->/showmessage/<!-- tmpl_var name="message_id" -->"><!-- tmpl_var name="created_date" --></a></small> 
+<!-- tmpl_if parent_id -->
+ - <small class="greytext"><a href="<!-- tmpl_var name="cgi_app" -->/replies/<!-- tmpl_var name="parent_id" -->">thread</a></small>
+<!-- /tmpl_if -->
+<!-- tmpl_if reply_count -->
+ - <small class="greytext"><a href="<!-- tmpl_var name="cgi_app" -->/replies/<!-- tmpl_var name="message_id" -->">replies: <!-- tmpl_var name="reply_count" --></a></small>
+<!-- /tmpl_if -->
+<!-- tmpl_if parent_id -->
+ - <small class="greytext"><a href="<!-- tmpl_var name="cgi_app" -->/reply/<!-- tmpl_var name="parent_id" -->">reply</a></small> 
+<!-- tmpl_else -->
+ - <small class="greytext"><a href="<!-- tmpl_var name="cgi_app" -->/reply/<!-- tmpl_var name="message_id" -->">reply</a></small> 
+<!-- /tmpl_if -->
+<br />
+<small>rcpts: <!-- tmpl_var name="recipient_names" --></small>
+
+</div> <!-- close author type -->
+<!-- </p> -->
+</div> <!-- close bubble -->
+</div> <!-- close messageblock -->
+
+
+<!-- /tmpl_if -->
+<!-- /tmpl_loop -->
+
+</div>  <!-- close streamcontent -->
+
+
+<div id="pagelinks">
+<!-- tmpl_if not_last_page -->
+<span id="olderlink"><a href="<!-- tmpl_var name="next_page_url" -->">Older &gt;&gt;</a></span>
+<!-- /tmpl_if -->
+<!-- tmpl_if not_page_one -->
+<a href="<!-- tmpl_var name="previous_page_url" -->">&lt;&lt; Newer</a>
+<!-- /tmpl_if -->
+</div>
+

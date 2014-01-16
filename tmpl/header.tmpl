@@ -1,0 +1,55 @@
+<!doctype html>
+<!--[if lt IE 7 ]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7 ]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8 ]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if IE 9 ]>    <html class="no-js ie9" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+<head>
+<title><!-- tmpl_var name="pagetitle" --></title>
+<meta charset="UTF-8" /> 
+<!-- <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" /> -->
+<!--[if lt IE 9]> 
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<![endif]-->
+<meta property="og:site_name"   content="<!-- tmpl_var name="site_name" -->" />
+<meta name="generator" content="Kinglet" />
+<meta name="viewport" content="initial-scale=1, width=device-width" />
+<link href="http://fonts.googleapis.com/css?family=Open+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css"> 
+<!-- <link rel="stylesheet" type="text/css" href="<!-- tmpl_var name="css_dir_url" -->/<!-- tmpl_var name="textsize" -->.css"  /> -->
+
+<link rel="stylesheet" type="text/css" href="<!-- tmpl_var name="css_dir_url" -->/<!-- tmpl_var name="theme" -->.css"  /> 
+
+<link rel="stylesheet" type="text/css" href="http://soupmode.com/css/soupmodemenu.css" media="all" />
+<link rel="stylesheet" type="text/css" href="http://soupmode.com/css/meanmenu.css" media="all" />
+
+<!--[if lt IE 9]>
+<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+</head>
+<body>
+
+<header>
+<span id="homelink"><a title="Home Page" href="<!-- tmpl_var name="home_page" -->"><strong><!-- tmpl_var name="site_name"--></strong></a></span> 
+<nav>
+<ul>
+<!-- <li><a title="Search" href="<!-- tmpl_var name="cgi_app" -->/searchform">search</a></li> -->
+<!-- tmpl_if loggedin --> 
+<li><a title="Your profile and settings" href="<!-- tmpl_var name="cgi_app" -->/user/<!-- tmpl_var name="user_name" -->"><!-- tmpl_var name="user_name" --></a></li>
+<!-- <li><a title="Messages by you" href="<!-- tmpl_var name="cgi_app" -->/yours">your's</a></li> -->
+<!-- <li><a title="Messages by others" href="<!-- tmpl_var name="cgi_app" -->/others">others</a></li> -->
+<li><a title="Log out of your account" href="<!-- tmpl_var name="cgi_app" -->/logout">logout</a></li>
+<li><a title="Display discussion list" href="<!-- tmpl_var name="cgi_app" -->/threads">threads</a></li>
+<li><a title="Compose new message" href="<!-- tmpl_var name="cgi_app" -->/compose">new</a></li> 
+<!-- tmpl_else -->
+<li><a title="Log into your account" href="<!-- tmpl_var name="cgi_app" -->/login">login</a></li>
+<li><a title="Create an account" href="<!-- tmpl_var name="cgi_app" -->/signup">sign-up</a></li>
+<!-- /tmpl_if -->
+</ul>
+</nav>
+</header>
+
+<section>
+
+<div id="sitewide">

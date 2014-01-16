@@ -1,0 +1,52 @@
+
+<!-- tmpl_include name="header.tmpl" -->
+<p>
+<!-- tmpl_var name="user_name" --> settings
+</p>
+
+<form method="post" action="<!-- tmpl_var name="cgi_app" -->/changepassword">
+<input type="hidden" name="userid" value="<!--tmpl_var name="user_id" -->">
+<p>
+old password: <input type="password" name="old_password" size="20">
+</p>
+
+<p>
+new password: <input type="password" name="new_password" size="20">
+</p>
+
+<p>
+verify password: <input type="password" name="verify_password" size="20">
+</p>
+
+<p>
+<input class="submitbutton" type="submit" name="sb" value="Change Password">
+</p>
+</form>
+
+
+<form method="post" action="<!-- tmpl_var name="cgi_app" -->/customizeuser">
+<input type="hidden" name="userid" value="<!--tmpl_var name="user_id" -->">
+
+<p>
+username: <strong><!-- tmpl_var name="user_name" --></strong>
+</p>
+
+<p>
+e-mail address: <input type="text" size="30" name="email" value="<!-- tmpl_var name="email" -->">
+</p>
+
+<p>
+Describe yourself for the rest of us.
+</p>
+
+<p>
+<textarea rows="10" cols="50" name="desc_markup"><!-- tmpl_var name="desc_markup" --></textarea>
+</p>
+
+<p>
+<input class="submitbutton" type="submit" name="sb" value="Update My Profile">
+</p>
+
+</form>
+
+<!-- tmpl_include name="footer.tmpl" -->

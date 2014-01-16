@@ -1,0 +1,28 @@
+<!-- tmpl_include name="header.tmpl" -->
+
+<p>
+<strong>User Profile for "<!-- tmpl_var name="profileusername" -->"</strong>
+</p>
+
+<!-- tmpl_if deleteduser -->
+<p>
+<span style="color: #c00">User account deactivated</span>
+</p>
+<!-- /tmpl_if -->
+
+<!-- tmpl_if ownerloggedin -->
+<div id="loggedinuserinfo">
+<p class="greytext"> 
+<!-- Items only visible to you when you're logged in. -->
+<ul>
+<li><a href="<!-- tmpl_var name="cgi_app" -->/settings">Change your password, e-mail address, or description info</a></li>
+</ul> 
+</p>
+</div>
+<!-- /tmpl_if -->
+
+<p>
+<!-- tmpl_var name="descformat" -->
+</p>
+
+<!-- tmpl_include name="footer.tmpl" -->

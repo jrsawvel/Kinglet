@@ -1,0 +1,43 @@
+<!-- tmpl_include name="header.tmpl" -->
+<p>
+Create a New User:
+</p>
+
+<p>
+Thanks for taking the time to register at <strong><!-- tmpl_var name="site_name" --></strong>. 
+ After registering and activiting your account, you'll be able to post content.
+</p>
+
+<form method="post" action="<!-- tmpl_var name="cgi_app" -->/createnewuser">
+
+<!--
+<p>
+<label for="password">Password:</label> <br />
+<input type="password" name="password" size="20">
+</p>
+
+<p>
+<label for="verifypassword">Verify password:</label> <br />
+<input type="password" name="verifypassword" size="20">
+</p>
+-->
+
+<p>
+<label for="username">Username:</label> <br />
+<input type="text" name="username" size="20" autofocus>
+your postings will be signed with this name.
+</p>
+
+<p>
+<label for="email">E-mail:</label> <br />
+<input type="text" name="email" size="20">
+<br />
+<strong>required</strong>, but it's only used to verify your registration, which includes receiving initial password, and if you forget your password in the future.
+</p>
+
+<p>
+<input class="submitbutton" type="submit" name="sb" value="Register">
+</p>
+
+</form>
+<!-- tmpl_include name="footer.tmpl" -->

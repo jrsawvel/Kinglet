@@ -1,0 +1,28 @@
+<!-- tmpl_if loggedin --> 
+<!-- <article class="h-entry">  -->
+<!-- tmpl_if parent_id -->
+<p class="greytext">
+<small><a href="<!-- tmpl_var name="cgi_app" -->/replies/<!-- tmpl_var name="parent_id" -->">discussion thread</a></small>
+</p>
+<!-- /tmpl_if -->
+<div id="content" class="e-content">
+<p>
+<!-- tmpl_var name="message_text" -->
+</p>
+</div>
+<p>
+From <a class="p-author h-card" href="<!-- tmpl_var name="cgi_app" -->/user/<!-- tmpl_var name="author_name" -->"><!-- tmpl_var name="author_name" --></a>
+ on <time class="dt-published" datetime="<!-- tmpl_var name="created_date" -->"><!-- tmpl_var name="created_date" --> UTC</time> 
+ - <a class="u-url" title="permalink" href="<!-- tmpl_var name="cgi_app" -->/showmessage/<!-- tmpl_var name="message_id" -->">#</a>
+<!-- tmpl_if reply_count -->
+ - <a href="<!-- tmpl_var name="cgi_app" -->/replies/<!-- tmpl_var name="message_id" -->">replies: <!-- tmpl_var name="reply_count" --></a>
+<!-- /tmpl_if -->
+<!-- tmpl_if parent_id -->
+ - <a href="<!-- tmpl_var name="cgi_app" -->/reply/<!-- tmpl_var name="parent_id" -->">reply</a>
+<!-- tmpl_else -->
+ - <a href="<!-- tmpl_var name="cgi_app" -->/reply/<!-- tmpl_var name="message_id" -->">reply</a>
+<!-- /tmpl_if -->
+</p>
+<!-- </article>  -->
+<!-- /tmpl_if -->
+

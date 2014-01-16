@@ -1,0 +1,47 @@
+section, article,  header {
+display: block;
+float: left;
+width: 100%;
+}
+header nav {
+text-align: left;
+background: #0066ff;
+font: .9em/1.5 "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+}
+header nav ul {
+margin: 0;
+margin: 0 0 0 6em; 
+padding: .4em 0 .5em 0; 
+list-style-type: none;
+}
+header nav ul li {
+display: inline;
+margin-left: 1em;
+}
+header nav ul li:first-child {
+margin-left: 0;
+}
+header nav ul li ul {
+display: none;
+}
+header nav a, header nav a:visited {
+color: #f8f8f8;
+text-decoration: none;
+}
+header nav a:hover {
+color: #ffffff;
+text-decoration: underline;
+}
+header #homelink a, header #homelink {
+color: #f8f8f8;
+text-decoration: none;
+}
+header #homelink {
+position: absolute;
+left: .5em;
+top: .5em;
+background: none;
+z-index: 99 !important;
+font: .9em/1.5 "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+}
+

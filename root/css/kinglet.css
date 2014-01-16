@@ -1,0 +1,518 @@
+body {
+    background: #ffffff;
+    font-family: "Open Sans", Arial, Helvetica, sans-serif; 
+    font-size: 100%; 
+    line-height: 1.5em;
+    width: 100%; 
+    margin: 0px;
+}  
+
+header {
+    /* background: #120a8f; */   /* ultramarine blue */
+    width: 100%;
+    position: fixed; 
+    top: 0;
+    left: 0;
+    z-index: 100; 
+}
+
+section, article,  header {
+    display: block;
+    float: left;
+    width: 100%; 
+}
+
+header nav {
+    text-align: left;
+    background: #0066ff;
+    font: .9em/1.5 "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+    padding-left: 1em;
+}
+
+header nav ul {
+    margin: 0 0 0 6em; 
+    padding: .4em 0 .5em 0; 
+    list-style-type: none;
+}
+
+header nav ul li {
+    display: inline;
+    margin-left: 1em;
+}
+
+header nav ul li:first-child {
+    margin-left: 0;
+}
+
+header nav ul li ul {
+    display: none;
+}
+
+header nav a, header nav a:visited {
+    color: #f8f8f8;
+    text-decoration: none;
+}
+
+header nav a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+header #homelink a, header #homelink {
+    color: #f8f8f8;
+    text-decoration: none;
+}
+
+header #homelink {
+    position: absolute;
+    left: .5em;
+    top: .5em;
+    background: none;
+    z-index: 99 !important;
+    font: .9em/1.5 "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+}
+
+section {
+    /* margin: 10px auto 0px; 3oct2013 */
+    margin: 0px auto 0px;
+    position: relative;
+    padding-top: 1em;
+}
+
+article {
+    margin: 0;
+    padding: 0;
+}
+
+textarea {
+    font-family: "Open Sans", Arial, Helvetica, sans-serif;  
+    font-size: 1em;
+    overflow: auto;
+    background: #ffffff;
+    border: 1px solid #ccc; 
+}
+
+input {
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px; 
+    border: 1px solid #cccccc;
+    padding-left: .4em;
+}
+
+#olderlink {
+    float: right;
+}
+
+#messagetextareabox {
+    width: 75%;
+}   
+
+br {
+    padding: 50px;
+}
+
+.hrstream, .hrthreads {
+    background: #ffffff;
+    border-width: 0; 
+    color: #d8d8d8; 
+    height: 1px; 
+    line-height: 0; 
+    text-align: left;
+} 
+
+a {
+    text-decoration: none; 
+    color: #0000ff;
+}
+
+a:visited {
+  /*  color: #cc3399; */
+    color: #0033ff;
+} 
+
+a:hover {
+    text-decoration: underline;
+}
+
+a:active {
+    text-decoration: underline; 
+    color: #ff0000;
+}
+
+.authorlink a {
+    color: #000000;
+    font-weight: bold; 
+    text-decoration: none;
+   font-size: 1.2em; 
+}
+
+.authorlink a:hover {
+    color: #000000;
+    text-decoration: underline;
+}
+
+.greytext a {
+    color: #888888;
+}
+
+.greytext a:visited {
+    color: #888888;
+}
+
+.greytext a:hover {
+    color: #000000; 
+    text-decoration: underline;
+}
+
+#headerhomelink a {
+    color: #f8f8f8;
+}
+
+#headerhomelink a:hover {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+#headerhomelink {
+    float: left;
+    background: #120a8f;   /* ultramarine blue */
+    padding: .4em .5em .5em .5em; 
+    margin: 0 0 0 0;
+    font-size: .9em;
+    font-family: Arial, Helvetica, sans-serif;  
+}
+
+#pagelinks {
+    clear: both;
+}
+
+#footermenu {
+    clear: right;
+    clear: left;
+    font-size: .8em;
+    text-align: center;
+}
+
+#footermenu ul {
+    list-style-type: none;
+    padding: 0 0 0 0; 
+    margin: 0 0 0 0;
+}
+
+#footermenu ul li {
+    display: inline-block; 
+}
+
+#footermenu ul li a {
+    text-align: left;
+    padding: 0 .5em;
+}
+
+#sitewide {
+    margin: 0px auto;
+    padding: 0;
+/* on 15jan2014 changed max-width from 42em to 40em */
+    max-width: 40em; 
+    padding: .4em .2em 0 .2em;
+/* added next two lines on 15jan2014 */
+    font-size: 1.15em;
+    line-height: 1.4em;
+}
+
+#content {
+    color: #000000;
+    /*
+    font-size: 1.2em;
+    line-height: 1.7em;
+    */
+/* 15jan2014 
+    font-size: 1.15em;
+    line-height: 1.4em;
+*/
+}
+
+#streamcontent {
+    /* font-size: 1em; */
+/* 15jan2014 
+    font-size: 1.15em;
+    line-height: 1.4em;
+*/
+}
+
+#threadstream {
+    /* font-size: 1em; */
+/* 15jan2014
+    font-size: 1.15em;
+    line-height: 1.4em;
+*/
+}
+
+.bluebutton {
+    font-size: 1em;
+    color: #f8f8f8;
+    background: #120a8f;  
+    border: 1px solid #120a8f;
+}
+
+.greenbutton {
+    font-size: 1em;
+    color: #f8f8f8;
+    background: #00cc33; 
+    border: 1px solid #00cc33;
+}
+
+.submitbutton {
+    font-size: 1em;
+    color: #f8f8f8;
+    background: #0066ff;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px; 
+    border: 1px solid #0066ff;
+}
+
+.submitbutton:hover {
+    color: #ffffff;
+    background: #0099ff;
+}
+
+#homepagebutton .submitbutton {
+    font-size: 1em;
+    color: #f8f8f8;
+    background: #00cc00; 
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px; 
+    border: 1px solid #00cc00;
+}
+
+#homepagebutton .submitbutton:hover {
+    color: #ffffff;
+    background: #3c6; 
+}
+
+#new_message_count {
+    margin-top: 1em;
+    text-align: center;
+}
+#new_message_count a {
+    text-decoration: none;
+    font-weight: bold; 
+    color: #ff9900
+}
+#new_message_count a:hover {
+    text-decoration: underline;
+    font-weight: bold; 
+    color: #ff9900
+}
+
+/*
+.you {
+    background: #f0fff0;
+    padding: .5em;
+	position: relative;
+	text-align: left;
+	border: 2px solid #666;
+	-webkit-border-radius: 30px;
+	-moz-border-radius: 30px;
+	border-radius: 30px;
+}
+*/
+
+.you .authorlink a {
+    color: #888888;
+    font-size: .8em;
+}
+
+/*
+.others {
+    background: #ccff66;
+    padding: .5em;
+	position: relative;
+	text-align: left;
+	border: 2px solid #666;
+	-webkit-border-radius: 30px;
+	-moz-border-radius: 30px;
+	border-radius: 30px;
+}
+*/
+
+.messageblock {
+    clear: both;
+/*    padding-top: 1em; */
+    padding-top: .5em;
+}
+
+.bubble {
+}
+
+/*  http://nicolasgallagher.com/pure-css-speech-bubbles/ */
+.triangle-isosceles {
+	position:relative;
+	padding:10px;
+        margin-bottom: 20px;
+/*	margin:1em 0 3em; */
+	color:#000;
+	/* css3 */
+	-webkit-border-radius:10px;
+	-moz-border-radius:10px;
+	border-radius:10px;
+}
+
+/* Variant : for left/right positioned triangle
+------------------------------------------ */
+
+.triangle-isosceles.others{
+	margin-left:20px;
+/*	margin-right:20px; */
+        margin-right:40px;
+        background: #ccff66;
+        float: left;
+}
+
+/* Variant : for right positioned triangle
+------------------------------------------ */
+
+.triangle-isosceles.you{
+	margin-right:20px;
+/*	margin-left:20px; */
+        margin-left:40px;
+	background:#ccffff;
+        float: right;
+}
+
+/* THE TRIANGLE
+------------------------------------------------------------------------------------------------------------------------------- */
+
+/* creates triangle */
+.triangle-isosceles:after {
+	content:"";
+	position:absolute;
+	bottom:-15px; /* value = - border-top-width - border-bottom-width */
+	left:30px; /* controls horizontal position */
+	border-width:15px 15px 0; /* vary these values to change the angle of the vertex */
+	border-style:solid;
+	border-color:#000; 
+    /* reduce the damage in FF3.0 */
+    display:block; 
+    width:0;
+}
+
+/* Variant : left
+------------------------------------------ */
+
+.triangle-isosceles.others:after {
+	top:16px; /* controls vertical position */
+	left:-21px;  /* value = - border-left-width - border-right-width */
+	bottom:auto;
+	border-width:9px 21px 9px 0;
+	border-color:transparent #ccff66; 
+}
+
+/* Variant : right
+------------------------------------------ */
+
+.triangle-isosceles.you:after {
+	top:16px; /* controls vertical position */
+	right:-21px; /* value = - border-left-width - border-right-width */
+	bottom:auto;
+    left:auto;
+	border-width:9px 0 9px 21px;
+	border-color:transparent #ccffff;
+}
+
+
+.you, .others {
+/*        border: 1px solid #ccc;  */
+}
+
+.newmessage {
+    border-bottom: 5px solid #ff6600;  
+}
+
+
+/******************* MEDIA QUERIES START **********************/
+
+/********** desktop or laptop >= 1224px **********/
+/* 76.5em = 1224 px */
+@media only screen and (min-width: 76.5em) { 
+    #content {
+/*        color: #222222; */
+    }
+}    
+
+/********** tablet 768-1024px **********/
+/* 75em = 1200px */
+@media only screen and (max-width: 75em) { 
+    #sitewide {
+        max-width: 40em; 
+    }
+
+    #content {
+    }
+}
+
+/********* smartphone 320-480px  **********/
+/* 37.5em = 600px */
+@media only screen and (max-width: 37.5em) {
+    #content {
+/*
+        font-size: 1.15em;
+        line-height: 1.4em;
+*/
+    }
+    #sitewide {
+        padding: .4em .5em 0 .5em;
+        font-size: 1em;
+        line-height: 1.2em;
+    }
+    #messagetextareabox {
+        width: 95%;
+        height: 4em;
+    }   
+
+    .triangle-isosceles.others{
+        margin-right: 1em;
+    }
+
+    .triangle-isosceles.you{
+        margin-left: 1em;
+    }
+
+    .extlink {
+        font-size: 80%;
+    }
+
+    .intlink {
+        font-size: 80%;
+    }
+    #threadstream {
+        padding-top: 1em;
+/* 15jan2014
+        font-size: 1em;
+        line-height: 1.3em;
+*/
+    }
+    #threadstream p {
+        margin: 0;
+        padding: 0;
+    } 
+    .hrthreads {
+        background-color: #cccccc; 
+    }
+    #threadstream small {
+        font-size: .8em;
+    }
+    .lastpostline {
+        padding-top: 5px;
+    }
+    
+}
+
+/* 
+   # = id - unique for a page - used once 
+   . = class - repeated usage on a page 
+   1em = 16px
+   margin/padding: top right bottom left;
+*/

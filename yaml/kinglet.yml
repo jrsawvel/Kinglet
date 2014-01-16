@@ -1,0 +1,31 @@
+---
+    template_home:                  /home/kinglet/Kinglet/tmpl
+    site_name:                      Soupmode
+    cgi_app:                         
+    home_page:                      http://soupmode.com
+    site_description:               Messaging
+    admin_email:                    na
+    admin_email_2:                  na 
+    email_host:                     soupmode.com
+    email_host_2:                   soupmode.com
+    css_dir_url:                    http://soupmode.com/css 
+    maincss_url:                    http://soupmode.com/css/kinglet.css
+    api_url:                        http://soupmode.com/api/v1
+    cookie_prefix:                  kinglet
+    max_title_length:               75
+    max_entries_on_page:            20 
+    max_replies_on_page:            100
+    max_message_length:             300
+    new_user_signups_allowed:       1
+    debug_mode:                     1
+    multiple_sessionids:            1
+    max_pwd_len:                    30
+    min_pwd_len:                    8
+    database_host:                  dbhostname
+    database_name:                  dbname
+    database_username:              dbusername
+    database_password:              dbpassword
+    dbtable_users:                  kinglet_users
+    dbtable_messages:               kinglet_messages
+    dbtable_recipients:             kinglet_recipients
+    dbtable_sessionids:             kinglet_sessionids

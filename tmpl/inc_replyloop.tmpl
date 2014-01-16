@@ -1,0 +1,25 @@
+<div id="streamcontent">
+<!-- tmpl_loop name="stream_loop" -->
+<!-- tmpl_if logged_in_user -->
+<!-- <!-- tmpl_var name="author_type" --> -->
+<div class="<!-- tmpl_var name="message_status" -->">
+<p> 
+<a href="<!-- tmpl_var name="cgi_app" -->/user/<!-- tmpl_var name="author_name" -->"><!-- tmpl_var name="author_name" --></a>:
+ <!-- tmpl_var name="message_text" -->  
+<br />
+<small class="greytext">- <a href="<!-- tmpl_var name="cgi_app" -->/showmessage/<!-- tmpl_var name="message_id" -->"><!-- tmpl_var name="created_date" --></a></small> 
+<!-- <!-- tmpl_var name="parent_id" -->  -->
+<!-- <!-- tmpl_var name="reply_count" -->  -->
+<!-- <!-- tmpl_var name="recipient_names" -->  -->
+</p>
+<hr class="hrstream">
+</div>
+<!-- /tmpl_if -->
+<!-- /tmpl_loop -->
+</div>  <!-- close streamcontent div -->
+<!-- tmpl_if not_last_page -->
+<span id="olderlink"><a href="<!-- tmpl_var name="next_page_url" -->">Older &gt;&gt;</a></span>
+<!-- /tmpl_if -->
+<!-- tmpl_if not_page_one -->
+<a href="<!-- tmpl_var name="previous_page_url" -->">&lt;&lt; Newer</a>
+<!-- /tmpl_if -->
