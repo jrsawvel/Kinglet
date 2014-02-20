@@ -3,6 +3,7 @@ package Messages;
 use strict;
 
 use CGI qw(:standard);
+use CGI::Carp qw(fatalsToBrowser);
 use API::GetMessage;
 use API::Stream;
 use API::NewMessage;

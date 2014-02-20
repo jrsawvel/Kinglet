@@ -6,6 +6,7 @@ use JSON::PP;
 use HTML::Entities;
 use Encode qw(decode encode);
 use CGI qw(:standard);
+use CGI::Carp qw(fatalsToBrowser);
 use Config::Config;
 use JRS::StrNumUtils;
 use API::Utils;
@@ -23,6 +24,7 @@ my $pt_db_password     = Config::get_value_for("database_password");
 my $dbtable_messages   = Config::get_value_for("dbtable_messages");
 my $dbtable_recipients = Config::get_value_for("dbtable_recipients");
 my $dbtable_users      = Config::get_value_for("dbtable_users");
+my $dbtable_lists      = Config::get_value_for("dbtable_lists");
 
 sub add_message {
     my $tmp_hash = shift;
@@ -61,6 +63,7 @@ sub add_message {
         $err_msg .= $reply{err_msg} . " ";
     }
 
+    my %approved_list_info;
     my %recipient_user_id_info;
     my $recipient_names;
 
@@ -93,9 +96,15 @@ sub add_message {
         if ( lc($recipient_names) !~ m|$tmp_name| ) {
             $recipient_names .= "$logged_in_user_name|";
         }
+
         %recipient_user_id_info = _get_recipient_user_ids($recipient_names);
         if ( $recipient_user_id_info{error_exists} ) {
             $err_msg .= $recipient_user_id_info{error_message};
+        } else {
+            %approved_list_info = _is_author_on_recipients_approved_lists($logged_in_user_id, \%recipient_user_id_info);
+            if ( $approved_list_info{error_exists} ) {
+                $err_msg .= $approved_list_info{error_message};
+            }
         }
     }
   
@@ -184,6 +193,53 @@ sub _add_message {
     return $message_id;
 }
 
+sub _is_author_on_recipients_approved_lists {
+    my $author_id      = shift;
+    my $recipient_info = shift; # ref to hash that contains refs to arrays
+
+    my $recipient_ids   = $recipient_info->{user_ids};
+    my $recipient_names = $recipient_info->{user_names};
+
+    my $sql;
+
+    my $db = Db->new($pt_db_catalog, $pt_db_user_id, $pt_db_password);
+    Error::report_error("500", "Error connecting to database.", $db->errstr) if $db->err;
+
+    my $len = @$recipient_ids;
+
+    my %hash;
+    $hash{error_exists} = 0;
+
+    for (my $i=0; $i<$len; $i++) {
+        my $user_id   = $recipient_ids->[$i];
+        my $user_name = $recipient_names->[$i];
+        if ( $user_id && $user_id != $author_id ) {
+            $sql = "select status from $dbtable_lists where requester_user_id = $author_id and recipient_user_id = $user_id  ";
+            $db->execute($sql);
+            Error::report_error("500", "Error executing SQL.", $db->errstr) if $db->err;
+            if ( $db->fetchrow ) {
+                my $status = $db->getcol("status");
+                if ( $status eq 'p' ) {
+                    $hash{error_message} .= "You cannot message '$user_name' because your request to be added to the user's approved list is still pending a decision by the user. ";
+                    $hash{error_exists}   = 1;
+                } elsif ( $status eq 'r' ) {
+                    $hash{error_message} .= "You cannot message '$user_name' because your request to be added to the user's approved list was rejected. ";
+                    $hash{error_exists}   = 1;
+                }
+            } else {
+                $hash{error_message} .= "You cannot message '$user_name' because you have not requested to be added to the user's approved list. ";
+                $hash{error_exists}   = 1;
+            }
+            Error::report_error("500", "Error retrieving data from database.", $db->errstr) if $db->err;
+        }
+    }
+
+#    $db->disconnect; why is this causing an error - 11Feb2014
+#    Error::report_error("500", "Error disconnecting from database.", $db->errstr) if $db->err;
+
+    return %hash;
+}
+
 sub _add_recipients {
     my $message_id  = shift;
     my $recipients  = shift; # ref to array
@@ -245,7 +301,8 @@ sub _get_recipient_user_ids {
     $db->disconnect;
     Error::report_error("500", "Error disconnecting from database.", $db->errstr) if $db->err;
 
-    $hash{user_ids} = \@ids;
+    $hash{user_ids}   = \@ids;
+    $hash{user_names} = \@recipients;
 
     return %hash;
 }

@@ -29,3 +29,4 @@
     dbtable_messages:               kinglet_messages
     dbtable_recipients:             kinglet_recipients
     dbtable_sessionids:             kinglet_sessionids
+    dbtable_lists:                  kinglet_lists

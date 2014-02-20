@@ -220,6 +220,16 @@ a:active {
     line-height: 1.4em;
 }
 
+.pending-request {
+    background: #ffff99;
+}
+.approved-request {
+    background: #99ff66;
+}
+.rejected-request {
+    background: #ff6666;
+}
+
 #content {
     color: #000000;
     /*
@@ -380,6 +390,8 @@ a:active {
         margin-left:40px;
 	background:#ccffff;
         float: right;
+        color: #444444;
+        font-size: 90%;
 }
 
 /* THE TRIANGLE

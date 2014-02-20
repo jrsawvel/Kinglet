@@ -12,12 +12,26 @@
 
 <!-- tmpl_if ownerloggedin -->
 <div id="loggedinuserinfo">
-<p class="greytext"> 
+<p>
 <!-- Items only visible to you when you're logged in. -->
-<ul>
-<li><a href="<!-- tmpl_var name="cgi_app" -->/settings">Change your password, e-mail address, or description info</a></li>
-</ul> 
+<a href="<!-- tmpl_var name="cgi_app" -->/settings">Change your password, e-mail address, or description info</a>
 </p>
+
+<p>
+<a href="<!-- tmpl_var name="cgi_app" -->/requestsreceived">Approval requests received</a>
+</p>
+
+<p>
+<small>In order to message another user, you need to request permission to be added to the user's approved list.</small>
+</p>
+
+<p>
+<form method="post" action="/requestapproval">
+username: <input type="text" size="15" name="recipient" value="">
+<input class="submitbutton" type="submit" name="sb" value="Request approval">
+</form>
+</p>
+
 </div>
 <!-- /tmpl_if -->
 

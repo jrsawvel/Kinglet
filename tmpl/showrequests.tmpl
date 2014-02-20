@@ -1,0 +1,19 @@
+<!-- tmpl_include name="header.tmpl" -->
+<p>
+Approval requests received:
+</p>
+
+<!-- tmpl_loop name="requests_loop" -->
+
+<span class="<!-- tmpl_var name="status" -->-request">
+<small><!-- tmpl_var name="status" --></small>
+ - <a href="<!-- tmpl_var name="cgi_app" -->/user/<!-- tmpl_var name="user_name" -->"><!-- tmpl_var name="user_name" --></a>
+ - <small><!-- tmpl_var name="created_date" --></small>
+ - <small><a href="<!-- tmpl_var name="cgi_app" -->/approverequest/<!-- tmpl_var name="user_name" -->">approve</a></small>
+ - <small><a href="<!-- tmpl_var name="cgi_app" -->/rejectrequest/<!-- tmpl_var name="user_name" -->">reject</a></small>
+</span>
+<br />
+
+<!-- /tmpl_loop -->
+
+<!-- tmpl_include name="footer.tmpl" -->

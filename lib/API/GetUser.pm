@@ -8,6 +8,7 @@ use Config::Config;
 use JRS::StrNumUtils;
 use API::Error;
 use API::Db;
+use API::ApprovedList;
 
 my $pt_db_source       = Config::get_value_for("database_host");
 my $pt_db_catalog      = Config::get_value_for("database_name");
@@ -20,6 +21,12 @@ sub get_user {
     my $user_name = shift;
     my $logged_in_user_name = shift;
     my $logged_in_user_id   = shift;
+
+    if ( $user_name ne $logged_in_user_name ) { 
+        if ( !ApprovedList::is_user_approved($logged_in_user_id, $user_name) ) {
+            Error::report_error("404", "Could not retrieve user information.", "You are not on $user_name\'s approved list of users.");
+        }
+    }
 
     my $hash_ref  = _get_user($user_name, $logged_in_user_name, $logged_in_user_id);
 
