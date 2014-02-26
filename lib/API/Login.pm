@@ -58,6 +58,7 @@ sub login {
     }
 
     $hash{status}           = 200;
+    $hash{description}      = "OK";
     my $json_return_str = encode_json \%hash;
     print header('application/json', '200 Accepted');
     print $json_return_str;

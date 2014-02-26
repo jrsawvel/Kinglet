@@ -28,6 +28,7 @@ sub report_error {
     my %http_status_codes;
     $http_status_codes{200} = "OK";
     $http_status_codes{201} = "Created";
+    $http_status_codes{204} = "No Content";
     $http_status_codes{400} = "Bad Request";
     $http_status_codes{401} = "Not Authorized";
     $http_status_codes{403} = "Forbidden";

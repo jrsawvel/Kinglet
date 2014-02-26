@@ -91,6 +91,7 @@ sub create_new_password {
 
     my %hash;
     $hash{status}       = 200;
+    $hash{description}  = "OK";
     $hash{email}        = $h[0]{EMAIL};
     $hash{new_password} = $h[0]{PWD};
     my $json_return_str = encode_json \%hash;

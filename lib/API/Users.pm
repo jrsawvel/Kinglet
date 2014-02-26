@@ -111,10 +111,11 @@ sub _activate_account {
     Error::report_error("400",   $u->get_cusmsg(),  $u->get_sysmsg()) if $u->is_system_error(); 
 
     my %hash;
-    $hash{status}       = 200;
-    $hash{description}  = "OK";
+    $hash{status}            = 204;
+    $hash{description}       = "No Content";
+    $hash{activate_account}  = "true";
     my $json_return_str = encode_json \%hash;
-    print header('application/json', '200 Accepted');
+    print header('application/json', '204 Accepted');
     print $json_return_str;
 
     exit;
@@ -136,10 +137,11 @@ sub _logout_user {
     Error::report_error("400",   $u->get_cusmsg(),  $u->get_sysmsg()) if $u->is_system_error(); 
 
     my %hash;
-    $hash{status}       = 200;
-    $hash{description}  = "OK";
+    $hash{status}       = 204;
+    $hash{description}  = "No Content";
+    $hash{logged_out}   = "true";
     my $json_return_str = encode_json \%hash;
-    print header('application/json', '200 Accepted');
+    print header('application/json', '204 Accepted');
     print $json_return_str;
 
     exit;

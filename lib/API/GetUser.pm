@@ -34,6 +34,7 @@ sub get_user {
         Error::report_error("404", "Could not retrieve user information.", "$user_name not found.");
     } else {
         $hash_ref->{status}           = 200;
+        $hash_ref->{description}      = "OK";
         my $json_str = encode_json $hash_ref;
         print header('application/json', '200 Accepted');
         print $json_str;
