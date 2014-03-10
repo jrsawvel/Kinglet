@@ -114,7 +114,7 @@ The API code receives REST requests, talks to the database, processes data, and 
 
 ## Programmer Help
 
-( #todo list how the POST request is crafted. )  
+  
 
 Kinglet API description. It's currently being used at Soupmode.com. 
 
@@ -140,6 +140,8 @@ GET request.
 * Create a new user account.  
 POST request.  
 ``/users``  
+Client sends JSON to the API:  
+``{ "user_name" : "userA", "email"     : "usera@usera.com" }``
 
 * Activate user account.  
 GET request.  
@@ -151,11 +153,15 @@ GET request.
 
 * Login user.  
 Post request.  
-``/users/login``
+``/users/login``  
+Client sends JSON to the API:  
+``{ "email"     : "usera@usera.com", "password" : "plaintextpwd" }``
 
 * Retrieve new password for existing account. User would not be logged in. This would be executed for someone who forgot or lost a password.  
 POST request.  
-``/users/password``
+``/users/password``  
+Client sends JSON to the API:  
+``{ "user_name" : "userA", "email"     : "usera@usera.com" }``
 
 * Change password for existing account. User must be logged-in.  
 PUT request.  
@@ -197,6 +203,8 @@ GET request.
 For GET requests, each URI ends with the query string:  
 ``/?user_name=[user_name]&user_id=[user_id]&session_id=[session_id]``
 
+The POST requests will also need the above name=value pairs encoded and sent to the API.
+
 Example displaying message number 5:  
 GET request.  
 ``http://soupmode.com/api/v1/messages/5/?user_name=JR&user_id=23&session_id=ru8er03jjg3k40vjl09``
@@ -219,7 +227,9 @@ GET request.
 
 * Create a new message.  
 POST request.   
-``/messages``
+``/messages``  
+In addition to the name=value logged-in credentials listed above, the client sends the following JSON to the API:  
+``{ "message_text" : "this is the message text." }``
 
 * Retrieve all reply messages for message ID number 5.  
 GET request.  
@@ -227,7 +237,9 @@ GET request.
 
 * Create a reply message to message ID number 5.  
 POST request.  
-``/messages/5/replies``
+``/messages/5/replies``  
+In addition to the name=value logged-in credentials listed above, the client sends the following JSON to the API:  
+``{ "message_text" : "this is the reply message text.", "reply_to_id" : 5, "reply_to_content_digest" : "sue83jlg9j4qo9l" }``
 
 * List the messages that start new discussions.  
 GET request.  
