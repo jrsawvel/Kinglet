@@ -68,11 +68,11 @@ sub update_profile {
     }
 
     my %hash;
-    $hash{status}          = 204;
-    $hash{description}     = "No Content";
+    $hash{status}          = 200;
+    $hash{description}     = "OK";
     $hash{profile_updated} = "true";
     my $json_return_str = encode_json \%hash;
-    print header('application/json', '204 Accepted');
+    print header('application/json', '200 Accepted');
     print $json_return_str;
     exit;
 

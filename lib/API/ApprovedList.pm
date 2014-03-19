@@ -105,8 +105,8 @@ sub _make_request {
     my $recipient_user_id = shift; # user receiving the request
 
     my %hash;
-    $hash{status}       = 204;
-    $hash{description}  = "No Content";
+    $hash{status}       = 200;
+    $hash{description}  = "OK";
     $hash{made_request} = "true";
 
     my $date_time = Utils::create_datetime_stamp();
@@ -143,7 +143,7 @@ sub _make_request {
     } 
     Error::report_error("500", "Error retrieving data from database.", $db->errstr) if $db->err;
 
-    if ( $hash{status} == 204 ) {
+    if ( $hash{status} == 200 ) {
         $sql  = "insert into $dbtable_lists (requester_user_id, recipient_user_id, status, created_date, modified_date) ";
         $sql .= " values ($author_id, $recipient_user_id, 'p', '$date_time', '$date_time') ";
         $db->execute($sql);

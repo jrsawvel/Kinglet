@@ -1,4 +1,4 @@
-# Kinglet User and Programmer Documentation
+# Kinglet User and Programmer Documentation 
 
 Example usage: [http://soupmode.com](http://soupmode.com)
 
@@ -276,8 +276,8 @@ Example:
 #### Activate Account
 
     {
-        "status"           :  204,
-        "description"      :  "No Content",
+        "status"           :  200,
+        "description"      :  "OK",
         "activate_account" : "true"
     }
 
@@ -306,8 +306,8 @@ Example:
 #### Successfully Updated User Profile Page
 
     {
-        "status"           :  204,
-        "description"      : "No Content",
+        "status"           :  200,
+        "description"      : "OK",
         "profile_updated"  : "true"
     }
 
@@ -364,8 +364,8 @@ If the user is on the other user's approved list.
 #### Successfully Logged Out
 
     {
-        "status"       :  204,
-        "description"  :  "No Content",
+        "status"       :  200,
+        "description"  :  "OK",
         "logged_out"   :  "true"
     }
 
@@ -373,8 +373,8 @@ If the user is on the other user's approved list.
 #### Successfully Submitted Approved List Request
 
     {
-        "status"         :  204,
-        "description"    :  "No Content",
+        "status"         :  200,
+        "description"    :  "OK",
         "made_request"   :  "true"
     }
 
@@ -588,4 +588,5 @@ If the user is on the other user's approved list.
         "description"           :  "OK",
         "server_epoch_seconds"  :  1389992757
     }
+
 

@@ -5,6 +5,7 @@ use Client::Modules;
 my %cgi_params = Function::get_cgi_params_from_path_info("function", "one", "two", "three", "four");
 
 my $dispatch_for = {
+    article            =>   sub { return \&do_sub(       "Article",        "show_static_page"         ) },
     homepage           =>   sub { return \&do_sub(       "Homepage",       "show_homepage"            ) },
     stream             =>   sub { return \&do_sub(       "Homepage",       "show_homepage"            ) },
     showerror          =>   sub { return \&do_sub(       "Function",       "do_invalid_function"      ) },
