@@ -2,15 +2,15 @@
     template_home:                  /home/kinglet/Kinglet/tmpl
     site_name:                      Soupmode
     cgi_app:                         
-    home_page:                      http://soupmode.com
+    home_page:                      https://soupmode.com
     site_description:               Messaging
     admin_email:                    na
     admin_email_2:                  na 
     email_host:                     soupmode.com
     email_host_2:                   soupmode.com
-    css_dir_url:                    http://soupmode.com/css 
-    maincss_url:                    http://soupmode.com/css/kinglet.css
-    api_url:                        http://soupmode.com/api/v1
+    css_dir_url:                    https://soupmode.com/css 
+    maincss_url:                    https://soupmode.com/css/kinglet.css
+    api_url:                        https://soupmode.com/api/v1
     cookie_prefix:                  kinglet
     max_title_length:               75
     max_entries_on_page:            20 
