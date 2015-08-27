@@ -307,14 +307,29 @@ a:active {
     text-align: center;
 }
 #new_message_count a {
-    text-decoration: none;
-    font-weight: bold; 
+    text-decoration: underline;
+    font-weight: bold;  
     color: #ff9900
 }
 #new_message_count a:hover {
     text-decoration: underline;
     font-weight: bold; 
     color: #ff9900
+}
+
+#pending_requests_count {
+    margin-top: 1em;
+    text-align: center;
+}
+#pending_requests_count a {
+    text-decoration: underline;
+/*    font-weight: bold;  */
+    color: #B71C1C;
+}
+#pending_requests_count a:hover {
+    text-decoration: underline;
+/*    font-weight: bold; */ 
+    color: #B71C1C;
 }
 
 /*

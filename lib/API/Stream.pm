@@ -8,6 +8,7 @@ use Config::Config;
 use API::Utils;
 use API::Error;
 use API::Db;
+use API::ApprovedList;
 use JRS::DateTimeFormatter;
 use JRS::StrNumUtils;
 
@@ -72,13 +73,16 @@ sub get_received_messages_since {
  
     my $sql      = _create_since_sql($user_auth->{user_id}, $epoch);
     my @messages = _get_stream($sql);
-
     my $array_len = @messages;
+
+    my @pending_requests = ApprovedList::get_pending_requests($user_auth->{user_id});
+    my $pending_requests_count = @pending_requests;
 
     my %hash;
     $hash{status}            =  200;
     $hash{description}       = "OK";
     $hash{new_message_count} = $array_len;
+    $hash{pending_requests_count} = $pending_requests_count;
     my $json_str = encode_json \%hash;
     print header('application/json', '200 Accepted');
     print $json_str;

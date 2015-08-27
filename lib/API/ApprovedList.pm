@@ -187,6 +187,26 @@ sub _get_user_id_for {
     return $user_id;
 }
 
+sub get_pending_requests {
+    my $logged_in_user_id = shift;
+
+    my $sql = <<EOSQL;
+    select u.user_name 
+    from $dbtable_lists l, $dbtable_users u where l.status='p' and l.recipient_user_id = $logged_in_user_id and l.requester_user_id = u.user_id
+EOSQL
+
+    my $db = Db->new($pt_db_catalog, $pt_db_user_id, $pt_db_password);
+    Error::report_error("500", "Error connecting to database.", $db->errstr) if $db->err;
+
+    my @loop_data = $db->gethashes($sql);
+    Error::report_error("500", "Error executing SQL.", $db->errstr) if $db->err;
+
+    $db->disconnect;
+    Error::report_error("500", "Error disconnecting from database.", $db->errstr) if $db->err;
+
+    return @loop_data;
+
+}
 sub _requests_received {
     my $logged_in_user_id = shift;
 
@@ -369,3 +389,4 @@ sub _is_requester_approved {
 
 
 1;
+

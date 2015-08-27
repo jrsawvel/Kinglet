@@ -1,7 +1,8 @@
 var MINI = require('minified'); 
 var $ = MINI.$, $$ = MINI.$$, EE = MINI.EE;
 
-var autoSaveInterval=60000; // every 60 seconds
+// var checkInterval=60000; // every 60 seconds
+var checkInterval=15000; // every 60 seconds
 var intervalID=0;
  
 // var dt       = new Date();
@@ -20,20 +21,22 @@ $.request('get', 'https://soupmode.com/api/v1/time/', {})
         // $('#new_message_count').fill('time response could not be completed.'); 
    });
 
-
 $(function() {
+
+    // do this at initial load of the page, mainly to check for pending approval requests 
+    newMessageCheck();
 
     var old_message_count = 0;
 
-    // autopreview every 1 minute
-   intervalID = setInterval(function(){previewPost()},autoSaveInterval); 
+    // check for new messages and pending approval requests
+   intervalID = setInterval(function(){newMessageCheck()},checkInterval); 
 
-   function previewPost () {
+   function newMessageCheck () {
 
         if ( server_epoch == 0 ) {
             var dt       = new Date();
             var mepoch   = dt.getTime();
-            mepoch       = mepoch - (autoSaveInterval * 2);
+            mepoch       = mepoch - (checkInterval * 2);
             server_epoch = Math.round(mepoch/1000);
         }
 
@@ -53,6 +56,17 @@ $(function() {
                      old_message_count = msg_count;
                      $('#new_message_count').set('innerHTML', html_str);
                      play_single_sound();
+                 }
+
+
+                 var pending_requests_count = obj['pending_requests_count']; 
+                 var pending_message_str = pending_requests_count + " pending approval requests"; 
+                 if ( pending_requests_count == 1 ) {
+                     pending_message_str = pending_requests_count + " pending approval request"; 
+                 }
+                 var pending_html_str = '<a href="https://soupmode.com/requestsreceived">' + pending_message_str + '</a>';
+                 if ( pending_requests_count ) {
+                     $('#pending_requests_count').set('innerHTML', pending_html_str);
                  }
              })
             .error(function(status, statusText, responseText) {

@@ -55,12 +55,19 @@ sub valid_password {
     return 1;
 }
 
+
 sub is_strong_password {
     my $password = shift;
 
-    my @alpha = $password =~ m/([a-z])/ig;
+    my @alpha = $password =~ m/([a-z0-9])/ig;
     my $alpha_len = @alpha;
-    return 0 if $alpha_len < 4; 
+#    return 0 if $alpha_len < 4; 
+# made this change on Aug 22, 2014
+# no longer requires a password to contain at least 2 digits and 2 punct chars
+# length must contain at least 10 alpha-numeric chars.
+return 0 if $alpha_len < 10; 
+return 1;
+
 
     my @digit = $password =~ m/(\d)/g;
     my $digit_len = @digit;
