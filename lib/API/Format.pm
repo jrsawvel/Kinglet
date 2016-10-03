@@ -180,5 +180,52 @@ sub _create_link {
     return $link;
 }
 
+
+# https://en.wikipedia.org/wiki/List_of_emoticons
+# http://cool-smileys.com/text-emoticons
+# http://pc.net/emoticons/smiley/angry
+
+sub add_emojis {
+    my $str = shift;
+
+    my $image_dir = "/images/smileys/";
+
+    my $smile     = '<img src="' . $image_dir . "smile.png"     . '">';  # :)
+    my $biggrin   = '<img src="' . $image_dir . "biggrin.png"   . '">';  # :))
+    my $dance     = '<img src="' . $image_dir . "dance.gif"     . '">';  # :)))
+    my $wink      = '<img src="' . $image_dir . "wink.png"      . '">';  # ;)
+    my $cool      = '<img src="' . $image_dir . "cool.png"      . '">';  # 8) - smiley with sunglasses
+    my $eek       = '<img src="' . $image_dir . "eek.png"       . '">';  # :o  or :O
+    my $frown     = '<img src="' . $image_dir . "frown.png"     . '">';  # :(
+    my $mad       = '<img src="' . $image_dir . "mad.png"       . '">';  # x(  or  X(
+    my $banghead  = '<img src="' . $image_dir . "banghead.gif"  . '">';  # x((  or  X((
+    my $stomp     = '<img src="' . $image_dir . "stomp.gif"     . '">';  # x(((  or  X(((
+    my $furious   = '<img src="' . $image_dir . "furious.gif"   . '">';  # x((((  or  X((((
+    my $cry       = '<img src="' . $image_dir . "cry.gif"       . '">';  # :'(
+    my $sleep     = '<img src="' . $image_dir . "sleep.gif"     . '">';  # |)
+    my $help      = '<img src="' . $image_dir . "help.gif"      . '">';  # !)!
+
+
+
+    $str =~ s|:\)\)\)|$dance|gs;
+    $str =~ s|:\)\)|$biggrin|gs;
+    $str =~ s|:\)|$smile|gs;
+    $str =~ s|;\)|$wink|gs;
+    $str =~ s|8\)|$cool|gs;
+    $str =~ s|:o|$eek|igs;
+    $str =~ s|:\(|$frown|gs;
+    $str =~ s|x\(\(\(\(|$furious|igs;
+    $str =~ s|x\(\(\(|$stomp|igs;
+    $str =~ s|x\(\(|$banghead|igs;
+    $str =~ s|x\(|$mad|igs;
+    $str =~ s|:'\(|$cry|gs;
+    $str =~ s/\|\)/$sleep/gs;
+    $str =~ s/!\)!/$help/gs;
+
+
+    return $str;
+}
+
+
 1;
 

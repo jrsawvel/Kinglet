@@ -13,9 +13,11 @@ sub logout {
     my $session_id   = User::get_logged_in_sessionid(); 
     my $query_string = "/?user_name=$user_name&user_id=$user_id&session_id=$session_id";
 
+
     my $api_url = Config::get_value_for("api_url") . "/users/" . $user_name . "/logout";
     my $rest = REST::Client->new();
     $api_url .= $query_string;
+
     $rest->GET($api_url);
 
     my $rc = $rest->responseCode();

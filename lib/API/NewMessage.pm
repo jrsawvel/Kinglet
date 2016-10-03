@@ -130,6 +130,7 @@ sub add_message {
 # maybe later   $formatted_content    = Format::hashtag_to_link($formatted_content);
 # maybe later   $formatted_content    = Format::post_id_to_link($formatted_content);
     $formatted_content    = Format::check_for_external_links($formatted_content);
+    $formatted_content    = Format::add_emojis($formatted_content);
 
     my $message_id = _add_message($logged_in_user_id, $logged_in_user_name, $formatted_content, $recipient_names, \%reply);
 
