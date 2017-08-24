@@ -17,5 +17,13 @@ current date: <!-- tmpl_var name="serverdatetime" -->
 
 </div>
 
+<script>
+if('serviceWorker' in navigator) {
+  navigator.serviceWorker
+           .register('/sw.js')
+           .then(function() { console.log("Service Worker Registered"); });
+}
+</script>
+
 </body>
 </html>

@@ -1,0 +1,15 @@
+{
+    "name": "Soupmode",
+    "icons": [
+        {
+            "src": "/images/android-chrome-72x72.png",
+            "sizes": "72x72",
+            "type": "image/png"
+        }
+    ],
+    "theme_color": "#ffffff",
+    "start_url": "/",
+    "background_color": "#ffffff",
+    "display": "standalone",
+    "orientation": "natural"
+}
